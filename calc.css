@@ -63,7 +63,7 @@ padding-right: 1em;
 }
 .buttonsA span {
     font-size: x-large;
-    font-weight: 600;
+    font-weight: 300;
 }
 .buttonsB {
     display: grid;
@@ -77,11 +77,15 @@ padding-right: 1em;
     font-weight: 300;
 }
 .buttonsB .dot{
-    font-size: xx-large;
+    font-size: x-large;
     font-weight: 800;
 }
 .buttonsB .minus{
     font-size: xx-large;
     font-weight: 600;
+}
+.buttonsB .divide{
+    font-size: xx-large;
+    
 }
 

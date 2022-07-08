@@ -1,11 +1,9 @@
 let add = function(a, b){
     return a + b  
 }
-
 let subtract = function(a, b){
     return a - b 
 }
-subtract(4, 1)
 let multiply = function(a, b){
     return a * b   
 }
@@ -15,7 +13,15 @@ let divide = function(a, b){
 
 function operate(a, b, operator){
     
-    console.log(`${a} ${operator} ${b}` + ' = ' + divide(a, b) )
+    (`${a} ${operator} ${b}` + ' = ' + divide(a, b) )
     
 }
 operate(8, 4, '/')
+
+let screen = document.querySelector(".screen");
+let num = document.querySelectorAll(".print");
+
+num.forEach(item => item.addEventListener("click", function(){
+    let vals = item.innerHTML
+    let disp = screen.innerHTML = vals
+}))
