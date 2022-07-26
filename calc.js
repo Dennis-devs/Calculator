@@ -1,19 +1,30 @@
 /*Equations*/ 
+let screen;
+screen = document.querySelector(".screen");
+let disp;
+disp = screen.innerHTML
 let add = function(a, b){
-    return  parseInt(a) + parseInt(b)  
+    if(b == ""){return "Syntax Error"}
+    else if(a == ""){return disp}
+    else {return parseInt(a) + parseInt(b)} 
 }
 let subtract = function(a, b){
-    return  parseInt(a) - parseInt(b) 
+    if(b == ""){return "Syntax Error"}
+    else if(a == ""){return disp}
+    else {return parseInt(a) - parseInt(b)} 
 }
 let multiply = function(a, b){
-    return  parseInt(a) * parseInt(b)   
+    if(a == "" || b == ""){return "Syntax Error"}
+    else {return parseInt(a) * parseInt(b)}
 }
 let divide = function(a, b){
-    return  parseInt(a) / parseInt(b)   
+    if(a == "" || b == ""){return "Syntax Error"}
+    else if (parseInt(b) == 0){return "Math Error"}
+    else{return parseInt(a) / parseInt(b)}   
 }
 
 /*Populate screen when empty and when not*/
-let screen = document.querySelector(".screen");
+screen = document.querySelector(".screen");
 let num = document.querySelectorAll(".print");
 
 let dispVal = num.forEach(item => item.addEventListener("click", function(){
@@ -26,13 +37,11 @@ let dispVal = num.forEach(item => item.addEventListener("click", function(){
     else{
     let vals = item.innerHTML
     let disp = screen.innerHTML = vals
-    let screen2 = document.querySelector(".screen")
-
     console.log(disp)
     }
 
 /*Save first number and operator selected*/
-    let disp = screen.innerHTML
+    disp = screen.innerHTML
     let arr1 = []
     let arr = disp.split("")
     console.log(arr)
@@ -43,15 +52,21 @@ let dispVal = num.forEach(item => item.addEventListener("click", function(){
     let sign = arr.filter(item => arr1.includes(item))
     console.log(sign)
     
-    let arr2 = arr.slice(0, arr.indexOf(sign[0])).join('')
-        console.log(arr2)
-    let arr3 = arr.slice(arr.indexOf(sign[0]) + 1).join('')    
-    console.log(arr3)
-    
+    let num1 = arr.slice(0, arr.indexOf(sign[0])).join('')
+    console.log(num1)
+    let num2 = (arr.slice(arr.indexOf(sign[0]) + 1, arr.indexOf(sign[1])).join('')) || (arr.slice(arr.indexOf(sign[0])).join(''))  
+    console.log(num2)
+    let num3 = (arr.slice(arr.indexOf(sign[1]) + 1, arr.indexOf(sign[2])).join('')) || (arr.slice(arr.indexOf(sign[1]) + 1).join(''))
+    console.log(num3)
+    let num4 = arr.slice(arr.indexOf(sign[2]) + 1, arr.indexOf(sign[3])).join('')    
+    console.log(num4)
+    let num5 = arr.slice(arr.indexOf(sign[3]) + 1, arr.indexOf(sign[4])).join('')    
+    console.log(num5)
+
 /*call equations*/
     function Ops(){
-    let num1 = arr2
-    let num2 = arr3
+    /*for (let i = 0; i < sign.length; i++) {*/
+    
     if(sign[0] == "+"){
         return add(num1, num2)
     } 
@@ -68,31 +83,26 @@ let dispVal = num.forEach(item => item.addEventListener("click", function(){
 
 function operate(a, b, operator){
     
-    (`${a} ${operator} ${b}` + ' = ' + screen.html )
+    `${a} ${operator} ${b}` + ' = ' + Ops() 
     
 }
 
 let equal = document.querySelector(".equal")
 equal.addEventListener("click", function(){
 
-    if(arr3 == undefined){
-        screen.innerHtml = 'Syntax Error'
-    } 
-    else{
-    operate(arr2, arr3, sign[0])
+    operate(num1, num2, sign[0])
     screen.innerHTML = Ops()
-    }
+
 })
 
     
 }))
 
-let operation;
 /*let operators = document.querySelectorAll(".operator")
 function Ops(){
 operators.forEach(item => item.addEventListener("click", function(){
-    let num1 = arr2
-    let num2 = arr3
+    let num1 = num1
+    let num2 = num2
     if(sign[0] == "+"){
         add(num1, num2)
     } 
@@ -109,9 +119,17 @@ operators.forEach(item => item.addEventListener("click", function(){
 
 /*let equal = document.querySelector(".equal")
 equal.addEventListener("click", function(){
-    operate(arr1, arr3, sign[0])
+    operate(arr1, num2, sign[0])
     screen.innerHTML = Ops()
 })*/
+let dispArr = []
+let del = document.querySelector(".del")
+del.addEventListener("click", function(){
+    dispArr.push(screen.innerHTML)
+    dispArr.pop()
+    screen.innerHTML = dispArr.join
+    
+})
 
 let clear = document.querySelector(".clear")
 clear.addEventListener("click", function(){
