@@ -19,7 +19,7 @@ let multiply = function(a, b){
 }
 let divide = function(a, b){
     if(a == "" || b == ""){return "Syntax Error"}
-    else if (parseInt(b) == 0){return "Math Error"}
+    else if (parseInt(b) == 0){return "...To Infinity and beyond"}
     else{return parseInt(a) / parseInt(b)}   
 }
 
@@ -42,13 +42,11 @@ let dispVal = num.forEach(item => item.addEventListener("click", function(){
 
 /*Save first number and operator selected*/
     disp = screen.innerHTML
-    console.log()
     let arr = disp.match(/\d+/g)
-    console.log()
     let regex = /\d+(?=\D)?/g
     let nums = disp.match(regex)
     console.log(nums)
-    let regex2 = /\D(?=\d)/g
+    let regex2 = /\D(?=\d)?/g
     let signs = disp.match(regex2)
     console.log(signs)
 
@@ -65,15 +63,36 @@ let dispVal = num.forEach(item => item.addEventListener("click", function(){
         else 
             return divide(a, b)
     }
-    let disp2;
+
+
+    if(nums.length == 2){
+    let disp2 ;
     disp2 = document.querySelector(".screen2")
     let equal = document.querySelector(".equal")
     equal.addEventListener("click", function(){
-        disp2.innerHTML = operate(nums[0], nums[1], signs[0])
-
+        disp2.innerHTML = operate(nums[0], nums[1], signs[0])    
     })
-
+    let operator = document.querySelectorAll(".operator")
+        operator.forEach(item => item.addEventListener("click", function(){
+        disp2.innerHTML = operate(nums[0], nums[1], signs[0])
+        }))
+    } 
+    else if(nums.length > 2) {
+        console.log(disp2.innerHTML)
+        disp2 = document.querySelector(".screen2")
+        let equal = document.querySelector(".equal")
+        equal.addEventListener("click", function(){
+        disp2.innerHTML = operate(disp2.innerHTML, nums[2], signs[1])
+        })
+    
+        let operator = document.querySelectorAll(".operator")
+        operator.forEach(item => item.addEventListener("click", function(){
+        disp2.innerHTML = operate(disp2.innerHTML, nums[2], signs[1])    
+        }))
+    }
 })) 
+
+
 let dispArr = []
 let del = document.querySelector(".del")
 del.addEventListener("click", function(){
