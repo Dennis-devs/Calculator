@@ -92,10 +92,16 @@ let num = document.querySelectorAll(".print");
                 return disp2.innerHTML
             })
         }
-        else if(disp.includes("\u00B2") == true){
+        else if(screen.innerHTML.includes("\u00B2") == true){
             equal.addEventListener("click", function(){
-                disp2.innerHTML = operate(disp2.innerHTML, nums.slice(-1).join(""), signs.slice(-1).join("") )
+                disp2.innerHTML = operate(disp2.innerHTML, nums.slice(-1).join(""), signs.slice(-1).join(""))
+                return disp2.innerHTML
             })
+            operator = document.querySelectorAll(".operator")
+            operator.forEach(item => item.addEventListener("click", function(){
+                disp2.innerHTML = operate(disp2.innerHTML, nums.slice(-1).join(""), signs.slice(-1).join(""))
+                return disp2.innerHTML
+        }))
             
         }
         else if(nums.length == 2){
