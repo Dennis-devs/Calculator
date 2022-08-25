@@ -8,19 +8,19 @@
     margin: 0;
 }
 #back{
- height: 100vh;
- background-color: gainsboro; 
- display: flex;  
- justify-content: center;
- align-items: center;
+    height: 100vh;
+    background-color: gainsboro; 
+    display: flex;  
+    justify-content: center;
+    align-items: center;
 }
 #calcbody{
-width: 500px;
-height: 600px;
-background-color: cadetblue;
-display: flex;
-flex-direction: column;
-border-radius: 6px;
+    width: 500px;
+    height: 600px;
+    background-color: cadetblue;
+    display: flex;
+    flex-direction: column;
+    border-radius: 6px;
 }
 #backscreen{
     position: relative;
@@ -45,16 +45,16 @@ border-radius: 6px;
     font-family: myFirstFont;
 }
 div .screenB{
-position: absolute;
-width: max-content;
-height: max-content;
-top: 30%;
-right: 20px;
-background-color: transparent;
-border: none;
-font-size: xx-large;
-font-weight: 300;
-font-family: myFirstFont;
+    position: absolute;
+    width: max-content;
+    height: max-content;
+    top: 30%;
+    right: 20px;
+    background-color: transparent;
+    border: none;
+    font-size: xx-large;
+    font-weight: 300;
+    font-family: myFirstFont;
 }
 button {
     padding: 5px;
@@ -78,11 +78,11 @@ button {
     background-color:burlywood;
 }
 .buttonsA > button{
-margin: 3px;
-padding-left: 1em;
-padding-right: 1em;
+    margin: 3px;
+    padding-left: 1em;
+    padding-right: 1em;
 }
-.buttonsA span {
+.buttonsA .spans {
     font-size: x-large;
     font-weight: 300;
 }
@@ -109,4 +109,21 @@ padding-right: 1em;
     font-size: xx-large;
     
 }
-
+.buttonsB .operator{
+    background-color: rgb(0, 139, 116);
+    transition: ease-out;
+}
+.buttonsB .operator:hover{
+    transform: scale(1.1);
+}
+.buttonsB .equal{
+    background-color: rgb(241, 143, 57);
+}
+.buttonsA button{
+    transition: ease-in
+}
+.buttonsA button:hover{
+    background-color: lavender;
+    color: black;
+    transform: scale(0.9);
+}
